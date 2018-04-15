@@ -1,9 +1,9 @@
 # template-veiw
-前端部署
-本项目提供了element-ui及adminlte两套主题，推荐使用element-ui主题【基于vue、element-ui构建开发】 
+    前端部署
+    本项目提供了element-ui及adminlte两套主题，推荐使用element-ui主题【基于vue、element-ui构建开发】 
 
-element-ui主题
-git clone
+# element-ui主题
+    git clone
     # 克隆项目
     git clone https://github.com/zjf2671/template-veiw/tree/master/template-vue
     # 安装依赖
@@ -11,8 +11,8 @@ git clone
     # 启动服务
     npm run dev
             
-adminlte主题
-git clone
+# adminlte主题
+    git clone
     # 克隆项目
     git clone https://github.com/zjf2671/template-veiw/tree/master/template-adminlte
     # 安装Nginx，并配置Nginx
