@@ -4,8 +4,8 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'ID', name: 'id', width: 30, key: true },
-			{ label: '参数名', name: 'key', width: 60 },
-			{ label: '参数值', name: 'value', width: 100 },
+			{ label: '参数名', name: 'paramKey', width: 60 },
+			{ label: '参数值', name: 'paramValue', width: 100 },
 			{ label: '备注', name: 'remark', width: 80 }
         ],
 		viewrecords: true,
@@ -39,7 +39,7 @@ var vm = new Vue({
 	el:'#rrapp',
 	data:{
 		q:{
-			key: null
+			paramKey: null
 		},
 		showList: true,
 		title: null,
@@ -116,17 +116,17 @@ var vm = new Vue({
 			vm.showList = true;
 			var page = $("#jqGrid").jqGrid('getGridParam','page');
 			$("#jqGrid").jqGrid('setGridParam',{ 
-                postData:{'key': vm.q.key},
+                postData:{'paramKey': vm.q.paramKey},
                 page:page
             }).trigger("reloadGrid");
 		},
 		validator: function () {
-			if(isBlank(vm.config.key)){
+			if(isBlank(vm.config.paramKey)){
 				alert("参数名不能为空");
 				return true;
 			}
 
-            if(isBlank(vm.config.value)){
+            if(isBlank(vm.config.paramValue)){
                 alert("参数值不能为空");
                 return true;
             }
