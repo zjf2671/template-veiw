@@ -4,11 +4,11 @@
     :close-on-click-modal="false"
     :visible.sync="visible">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="80px">
-      <el-form-item label="参数名" prop="key">
-        <el-input v-model="dataForm.key" placeholder="参数名"></el-input>
+      <el-form-item label="参数名" prop="parmaKey">
+        <el-input v-model="dataForm.parmaKey" placeholder="参数名"></el-input>
       </el-form-item>
-      <el-form-item label="参数值" prop="value">
-        <el-input v-model="dataForm.value" placeholder="参数值"></el-input>
+      <el-form-item label="参数值" prop="paramValue">
+        <el-input v-model="dataForm.paramValue" placeholder="参数值"></el-input>
       </el-form-item>
       <el-form-item label="备注" prop="remark">
         <el-input v-model="dataForm.remark" placeholder="备注"></el-input>
@@ -29,15 +29,15 @@
         visible: false,
         dataForm: {
           id: 0,
-          key: '',
-          value: '',
+          parmaKey: '',
+          paramValue: '',
           remark: ''
         },
         dataRule: {
-          key: [
+          parmaKey: [
             { required: true, message: '参数名不能为空', trigger: 'blur' }
           ],
-          value: [
+          paramValue: [
             { required: true, message: '参数值不能为空', trigger: 'blur' }
           ]
         }
@@ -52,8 +52,8 @@
           if (this.dataForm.id) {
             API.config.info(this.dataForm.id).then(({data}) => {
               if (data && data.code === 0) {
-                this.dataForm.key = data.config.key
-                this.dataForm.value = data.config.value
+                this.dataForm.parmaKey = data.config.parmaKey
+                this.dataForm.paramValue = data.config.paramValue
                 this.dataForm.remark = data.config.remark
               }
             })
@@ -66,8 +66,8 @@
           if (valid) {
             var params = {
               'id': this.dataForm.id || undefined,
-              'key': this.dataForm.key,
-              'value': this.dataForm.value,
+              'parmaKey': this.dataForm.parmaKey,
+              'paramValue': this.dataForm.paramValue,
               'remark': this.dataForm.remark
             }
             var tick = !this.dataForm.id ? API.config.add(params) : API.config.update(params)
